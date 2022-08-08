@@ -30,7 +30,7 @@ pub async fn start_bot() {
     dotenv().ok();
 
     let options = poise::FrameworkOptions {
-        commands: vec![],
+        commands: vec![hello_world()],
         prefix_options: poise::PrefixFrameworkOptions {
             prefix: Some("!".into()),
             // edit_tracker: Some(poise::EditTracker::for_timespan(Duration::from_secs(3600))),
