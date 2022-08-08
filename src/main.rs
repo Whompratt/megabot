@@ -1,7 +1,6 @@
 mod bot;
 use crate::bot::start_bot;
 use dotenv::dotenv;
-use log::{debug, error};
 
 #[tokio::main]
 async fn main() {

@@ -1,6 +1,7 @@
 use poise::serenity_prelude as serenity;
 use std::env::var;
 type Error = Box<dyn std::error::Error + Send + Sync>;
+type Context<'a> = poise::Context<'a, Data, Error>;
 use dotenv::dotenv;
 
 pub struct Data {}
@@ -17,6 +18,12 @@ async fn on_error(error: poise::FrameworkError<'_, Data, Error>) {
             }
         }
     }
+}
+
+#[poise::command(slash_command, prefix_command)]
+pub async fn hello_world(ctx: Context<'_>) -> Result<(), Error> {
+    poise::say_reply(ctx, "Hello, world!").await?;
+    Ok(())
 }
 
 pub async fn start_bot() {
